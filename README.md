@@ -2,6 +2,10 @@
 
 Gmail AI Helper is a Python-based application that fetches emails from a Gmail account, processes them using a local LLM (Llama-3.2-3B-Instruct-Q4_0), and generates insightful visualizations based on categorized emails.
 
+## Output example: 
+
+![image](https://github.com/user-attachments/assets/1afa6882-3d4a-46a7-bd9b-c5bee6c40698)
+
 ## Features
 
 - Fetch emails from Gmail using the Gmail API.
