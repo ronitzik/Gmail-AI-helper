@@ -1,0 +1,31 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.log
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Credentials and environment files
+credentials.json
+.env
+token.json
+
+# IDE/Editor-specific
+.vscode/
+.idea/
+*.sublime-workspace
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+*.bak
+*.swp
+*.tmp
+*.cache
