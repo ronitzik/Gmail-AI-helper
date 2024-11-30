@@ -185,10 +185,15 @@ Response Required: <Yes OR No>
 
             # Validate the parsed response
             response_data = {
-                "Category": response_data.get("Category", "Unknown"),
-                "Priority": response_data.get("Priority", "Normal"),
-                "Response Required": response_data.get("Response Required", "No"),
+                "Category": response_data.get("Category", "Unknown").strip()
+                or "Unknown",
+                "Priority": response_data.get("Priority", "Normal").strip() or "Normal",
+                "Response Required": response_data.get(
+                    "Response Required", "No"
+                ).strip()
+                or "No",
             }
+
         else:
             raise ValueError("LLM response is not a string.")
 
@@ -215,7 +220,9 @@ def show_all_charts(categorized_emails):
         response_required = email.get("Response Required", "No").split()[
             0
         ]  # Sanitize field
-        priority = email.get("Priority", "Normal")
+        priority = (
+            email.get("Priority", "Normal").strip() or "Normal"
+        )
 
         # Count categories
         category_counts[category] = category_counts.get(category, 0) + 1
@@ -288,7 +295,7 @@ def main():
 
     llm = GPT4All("Llama-3.2-3B-Instruct-Q4_0.gguf", allow_download=False)  
     # Get the last emails
-    emails = get_emails(max_results=5)
+    emails = get_emails(max_results=20)
     categorized_emails = []
     
     # Process each email 
