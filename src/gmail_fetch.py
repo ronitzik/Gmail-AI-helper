@@ -171,7 +171,7 @@ Response Required: <Yes OR No>
         full_prompt = f"{system_prompt}\n\n{prompt}"
 
         # Generate a response from the LLM
-        response = llm.generate(full_prompt)
+        response = llm.generate(full_prompt, max_tokens=90)
 
         # Ensure the response is properly parsed
         if isinstance(response, str):
